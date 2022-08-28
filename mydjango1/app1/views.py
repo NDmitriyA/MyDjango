@@ -41,9 +41,9 @@ def omlet(request):
     context = {
         'recipe': recipes
     }
-    servings = int(request.GET['servings'])
+    # servings = int(request.GET['servings'])
 
-    return render(request, templates_name, context, {servings})
+    return render(request, templates_name, context)
 
 def pasta(request):
     templates_name = 'app1/index.html'
