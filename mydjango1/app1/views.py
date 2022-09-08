@@ -34,29 +34,8 @@ DATA = {'omlet': {'яйца, шт': 2, 'молоко, л': 0.1, 'соль, ч.л
                   'помидор, ломтик': 1, }, }
 
 
-def omlet(request):
-    templates_name = 'app1/index.html'
 
-    recipes = DATA.get('omlet')
-    context = {
-        'recipe': recipes
-    }
-    # servings = int(request.GET['servings'])
-
-    return render(request, templates_name, context)
-
-def pasta(request):
-    templates_name = 'app1/index.html'
-    recipes = DATA.get('pasta')
-    context = {
-        'recipe': recipes
-    }
-    return render(request, templates_name, context)
-
-def buter(request):
-    templates_name = 'app1/index.html'
-    recipes = DATA.get('buter')
-    context = {
-        'recipe': recipes
-    }
-    return render(request, templates_name, context)
+def recipes(request, dish):
+    servings = int(request.GET.get('servings', 1))
+    context = {'recipe': {key: value * servings for key, value in DATA[dish].items()}}
+    return render(request, 'app1/index.html', context)

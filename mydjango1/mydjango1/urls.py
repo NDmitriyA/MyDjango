@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app1.views import time, index, workdir, omlet, pasta, buter
+from app1.views import time, index, workdir, recipes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
     path('time/', time, name='time'),
     path('workdir/', workdir, name='workdir'),
-    path('omlet/', omlet, name='omlet'),
-    path('pasta/', pasta, name='pasta'),
-    path('buter/', buter, name='buter')
-]
+    # path('omlet/', omlet, name='omlet'),
+    # path('pasta/', pasta, name='pasta'),
+    # path('buter/', buter, name='buter'),
+    path('<dish>/', recipes, name='recipes'),
+ ]

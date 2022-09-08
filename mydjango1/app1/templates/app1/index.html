@@ -7,10 +7,6 @@
 <body>
 {% for ingredient, amount in recipe.items %}
     <p>{{ ingredient }}: {{ amount }}</p>
-{% if servings %}
-    <p>{{ ingredient }}: {{ amount  * servings}</p>
-
-{% endif %}
 {% empty %}
     <p>Такого рецепта не знаю :(</p>
 
